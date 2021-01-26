@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="/browser/css/popover-extra-placements.css">
     <link rel="stylesheet" type="text/css" href="/browser/css/animate.css">
     <link rel="stylesheet" type="text/css" href="/browser/css/bootstrap-multiselect.css">
-    <link rel="stylesheet" type="text/css" href="/browser/css/snomed-interaction-components.min.css?version=build_version">
+    <link rel="stylesheet" type="text/css" href="/browser/css/snomed-interaction-components.min.css?version=3.14.1-SNAPSHOT-318">
 
-    <script src="/browser/internal-libs/snomed-interaction-components.min.js?version=build_version"></script>
+    <script src="/browser/internal-libs/snomed-interaction-components.min.js?version=3.14.1-SNAPSHOT-318"></script>
     <script src="/browser/internal-libs/dailyBuildPlugin.js"></script>
 
     <script src="/browser/external-libs/jquery.history.js"></script>
@@ -195,6 +195,9 @@
             else if(window.location.hostname.includes('browser')) {
                 options.publicBrowser = true;
             }
+
+                options.dailyBuildBrowser = true;
+
             
             if(options.dailyBuildBrowser) {
                 $("#fh-daily_canvas-li").css({
@@ -420,8 +423,8 @@
                     $span1.text("Go browsing...");
                     var $span2 = $('<span>').attr("class", "small");
                     if(options.dailyBuildBrowser) {
-                        $span2.append(release.name + "<br>DAILY BUILD");
-                        $("#editionLabel").html(release.name + " DAILY BUILD");
+                        $span2.append(release.name + "<br>TEST BUILD");
+                        $("#editionLabel").html(release.name + " TEST BUILD");
                     } else {                    
                         $span2.append(release.name + "<br>" + release.latestVersion.version);                                       
                     }
@@ -1847,13 +1850,14 @@
                         </ul>
                     </li>
 
-                    <li class="navbar-btn feedback-button">
+<!--                    <li class="navbar-btn feedback-button">
                         <button type="button" class="btn btn-info" onclick="FreshWidget.show();
                                     return false;">
                                 <span class="i18n" data-i18n-id="i18n_feedback">Feedback</span>
                             </button>
                     </li>
-                    <li class="dropdown">
+-->
+		    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="i18n" data-i18n-id="i18n_about">Help</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="http://snomed.org/snomedtools-privacy" target=_blank>SNOMED International Privacy Policy</a></li>
@@ -1946,24 +1950,24 @@
             </p>
             <p><strong><a href="http://snomed.org/snomedtools-privacy" target=_blank>SNOMED International Privacy Policy</a></strong> <span id="csconsentlink">Cookie Settings</span></small>
             </p>
-            <p> <small><b>&copy; SNOMED International <span class="copyright_year"/></b> v<span>project_version</span><br></small>
+            <p> <small><b>&copy; SNOMED International <span class="copyright_year"/></b> v<span>3.14.1-SNAPSHOT</span><br></small>
             </p>
         </div>
 
         <!-- Welcome Perspective DailyBuild -->
         <div id="welcome-perspective-dailybuild" class="bperspective">
             <div class="jumbotron">
-                <h1>Daily Build SNOMED CT Browser</h1>
-                <p>This is a browser for the SNOMED CT Daily Build.</p>
+                <h1>Subontology SNOMED CT Browser</h1>
+                <p>This is a browser for experimental subontologies extracted from SNOMED CT.</p>
                 <h2><span class="text-warning">Warning</span></h2>
-                <p>This browser contains a test build of the terminology for evaluation purposes only. There can be no expectation of continuity of identifiers, descriptions text or changes in components (e.g. relationships).</p>
+                <p>This browser contains a experimental subontologies for evaluation purposes only. There can be no expectation of continuity of identifiers, descriptions text or changes in components (e.g. relationships).</p>
                 <p>No new concepts or identifiers may be used in clinical systems.</p>
                 <p id="dailybuild_editions" style="margin-bottom : 0px"></p>
 
                 <!--<a class="btn btn-primary btn-lg" role="button" onclick="switchRelease('Daily Build Edition 20200131', 'en-edition', 'v20200131', '', '900000000000509007', 'https://prod-dailybuild.ihtsdotools.org/api/snomed');switchToFullHeight(404684003, 138875005);"><img src="img/box-logo.png" style="height:20px">&nbsp;&nbsp;&nbsp;<span class="i18n" data-i18n-id="i18n_start_browsing">Start browsing...</span><br><span class="small">Daily Build edition</span></a>-->
                 </p>
                 <p id="lastUpdatedText"></p>
-                <h3>Other Daily Builds:</h3>
+                <h3>Subontology builds:</h3>
                 <p id="dailybuild_local_editions" style="margin-bottom : 0px"></p>
             </div>
             <p><span class="i18n" data-i18n-id="i18n_home6"><span class="btn-success"><em>Releases</em></span> will allow the selection of SNOMED CT content from the International Edition or other extensions, with specific dates.</span>
@@ -1972,7 +1976,7 @@
             </p>
             <p><strong><a href="http://snomed.org/snomedtools-privacy" target=_blank>SNOMED International Privacy Policy</a></strong></small>
             </p>
-            <p> <small><b>&copy; SNOMED International <span class="copyright_year"/></b> v<span>project_version</span><br></small>
+            <p> <small><b>&copy; SNOMED International <span class="copyright_year"/></b> v<span>3.14.1-SNAPSHOT</span><br></small>
             </p>
         </div>
 
