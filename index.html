@@ -2031,7 +2031,7 @@
         function openEclBuilder() {
             var eclString = $('#fh-query_canvas-ExpText').val();
 
-            $("body").append("<ecl-builder api-url='/snowstorm/snomed-ct' ecl-string='" + eclString + "'></ecl-builder>");
+            $("body").append("<ecl-builder branch=" + options.edition + " api-url='/snowstorm/snomed-ct' ecl-string='" + eclString + "'></ecl-builder>");
 
             const el = document.querySelector('ecl-builder');
             el.addEventListener('output', e => {
