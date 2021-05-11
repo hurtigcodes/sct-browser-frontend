@@ -696,7 +696,7 @@ function conceptDetails(divElement, conceptId, options) {
                         iframeContent.openJiraIssueCollectorDialog();
                     }
                 });
-            }            
+            }
 
             $('#' + 'share-link-' + panel.divElement.id).disableTextSelect();
             $('#' + 'share-link-' + panel.divElement.id).click(function(event) {
