@@ -3,7 +3,6 @@ console.log('MAINT ALERT TEST');
 var scheduledAlerts = [];
 
 checkSchedule();
-toastr.warning('This is a test', 'TEST');
 setInterval(() => this.checkSchedule(), 60000);
 
 function checkSchedule() {
@@ -18,17 +17,14 @@ function checkSchedule() {
 }
 
 function calculateSchedule(schedule) {
-    console.log('schedule: ', schedule);
     const currentTime = new Date().getTime();
 
     schedule.forEach(item => {
-        this.scheduledAlerts.forEach(storedAlert => {
-            if (storedAlert.id === item.id) {
-                if (item.status === 'scheduled') {
-                    toastr.info(item.incident_updates[0].body, 'NEW MAINTENANCE');
-                }
+        if (!this.scheduledAlerts.some(storedItem => storedItem.id === item.id)) {
+            if (item.status === 'scheduled') {
+                toastr.info(item.incident_updates[0].body, 'NEW MAINTENANCE');
             }
-        });
+        }
 
         const scheduledTime = new Date(item.scheduled_for).getTime();
 
@@ -50,6 +46,10 @@ function calculateSchedule(schedule) {
                 if (storedAlert.status === 'scheduled' && item.status === 'in_progress') {
                     toastr.info(item.incident_updates[0].body, 'MAINTENANCE STARTED');
                 }
+
+                if (storedAlert.status !== 'completed' && item.status === 'completed') {
+                    toastr.info(item.incident_updates[0].body, 'MAINTENANCE COMPLETE');
+                }
             }
         });
     });
@@ -66,13 +66,13 @@ function calculateSchedule(schedule) {
 }
 
 function schedule10minCheck(currentTime, scheduledTime) {
-    return currentTime > (scheduledTime - 630000) && currentTime < (scheduledTime - 570000);
+    return currentTime > (scheduledTime - 660000) && currentTime < (scheduledTime - 600000);
 }
 
 function schedule5minCheck(currentTime, scheduledTime) {
-    return currentTime > (scheduledTime - 330000) && currentTime < (scheduledTime - 270000);
+    return currentTime > (scheduledTime - 360000) && currentTime < (scheduledTime - 300000);
 }
 
 function schedule1minCheck(currentTime, scheduledTime) {
-    return currentTime > (scheduledTime - 90000) && currentTime < (scheduledTime - 30000);
+    return currentTime > (scheduledTime - 120000) && currentTime < (scheduledTime - 60000);
 }
