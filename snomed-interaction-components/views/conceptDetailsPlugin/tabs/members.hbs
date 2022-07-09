@@ -9,6 +9,7 @@
             {{/if_eq}}
             <th><span data-i18n-id="i18n_conceptId" class="i18n">{{i18n "i18n_conceptId" "Concept Id"}}</span></th>
             <th><span data-i18n-id="i18n_module_id" class="i18n">{{i18n "i18n_module_id" "Module Id"}}</span></th>
+            <th><span data-i18n-id="i18n_active" class="i18n">{{i18n "i18n_active" "Active"}}</span></th>
             {{#with result.items.[0]}}
                 {{#each additionalFields}}
                     <th>{{@key}}</th>
@@ -54,6 +55,11 @@
                 {{/hasCountryIcon}}
                 {{moduleId}}
             </td>
+            {{#if active}}
+                <td>{{active}}</td>
+            {{else}}
+                <td>false</td>
+            {{/if}}
             {{#each additionalFields}}
                 <td>{{this}}</td>
             {{/each}} 
